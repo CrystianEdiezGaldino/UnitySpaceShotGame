@@ -11,11 +11,14 @@ public class PlayerControll : MonoBehaviour
     public float xMaximo;
     public float zMinimo;
     public float zMaximo;
+    public GameObject[] gun;
 
     Lifebar life;
+    Mision msion;
     private void Start()
     {
         life = FindObjectOfType<Lifebar>();
+        msion = FindObjectOfType<Mision>();
     }
 
     public void Update()
@@ -29,7 +32,23 @@ public class PlayerControll : MonoBehaviour
        moveToPlayer *= Time.deltaTime;
        transform.Translate(moveToPlayer);
 
-        
+        switch (msion.getPowe)
+        {
+            case 1:
+                gun[1].SetActive(true);
+                break;
+            case 2:
+                gun[2].SetActive(true);
+                break;
+            case 3:
+                gun[3].SetActive(true);
+                break;
+
+            default:
+                print("Full PoweUp");
+                break;
+        }
+        print(msion.getPowe);
 
     }
     public void OnTriggerEnter(Collider other)
