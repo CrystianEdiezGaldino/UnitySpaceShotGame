@@ -48,7 +48,7 @@ public class PlayerControll : MonoBehaviour
                 print("Full PoweUp");
                 break;
         }
-        print(msion.getPowe);
+        
 
     }
     public void OnTriggerEnter(Collider other)
